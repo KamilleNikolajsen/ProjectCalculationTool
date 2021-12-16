@@ -9,7 +9,7 @@ class SubProjectServiceTest {
     SubProjectService subProjectService = new SubProjectService(null);
 
     @Test
-    void valdiateNullName() {
+    void valdiateNameWithNull() {
         //Arrange
         String name = null;
 
@@ -19,7 +19,7 @@ class SubProjectServiceTest {
     }
 
     @Test
-    void valdiateLongNameName() {
+    void validateNameWithToLongName() {
         //Arrange
         String name = "thisnameiswaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaymorethan45characters";
 
@@ -29,7 +29,7 @@ class SubProjectServiceTest {
     }
 
     @Test
-    void validateSuccessfully() {
+    void validateNameSuccessfully() {
         //Arrange
         String name = "Test";
 

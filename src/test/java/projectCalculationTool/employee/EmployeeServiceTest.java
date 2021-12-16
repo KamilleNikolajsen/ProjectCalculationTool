@@ -22,13 +22,10 @@ class EmployeeServiceTest {
         assertThrows(ValidateException.class, () -> employeeService.validateEmail(email));
     }
 
-    @Test
-    void validatePasswordLength() throws ValidateException {
-        String pw = "what a password";
-
-        String actual = employeeService.validatePasswordLength(pw);
-
-        assertEquals(pw, actual);
+    @ParameterizedTest
+    @CsvSource(value = {"test@yes.dk", "test@hej.com", "hans@hej.dk", "kurt@hej.dk"})
+    public void validEmailTest(String email) {
+        assertDoesNotThrow(() -> employeeService.validateEmail(email));
     }
 
     @Test
@@ -40,5 +37,26 @@ class EmployeeServiceTest {
         assertEquals("Incorrect login information", exception.getMessage());
     }
 
+    @Test
+    void validatePasswordLength() throws ValidateException {
+        String pw = "what a password";
 
+        String actual = employeeService.validatePasswordLength(pw);
+
+        assertEquals(pw, actual);
+    }
+
+    @Test
+    void invalidatePasswordLengthToLong() {
+        String pw = "what a passwordadasdasdasdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddpasswordadasdasdasdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddpasswordadasdasdasdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddpasswordadasdasdasdasdasdasdasdasdasdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";
+
+        assertThrows(ValidateException.class, () -> employeeService.validatePasswordLength(pw));
+    }
+
+    @Test
+    void invalidatePasswordLengthNull() {
+        String pw = null;
+
+        assertThrows(ValidateException.class, () -> employeeService.validatePasswordLength(pw));
+    }
 }

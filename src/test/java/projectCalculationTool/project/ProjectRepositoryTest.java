@@ -82,6 +82,16 @@ class ProjectRepositoryTest {
   }
 
   @Test
+  public void createProjectToLongName(){
+
+    Project project1 = new Project();
+    project1.setName("ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
+    project1.setEmployee(employee);
+
+    assertThrows(ProjectException.class, () -> projectRepository.createProject(project1));
+  }
+
+  @Test
   public void deleteProjectSuccessfully(){
     assertDoesNotThrow(() -> projectRepository.deleteProject(project.getProjectID()));
   }

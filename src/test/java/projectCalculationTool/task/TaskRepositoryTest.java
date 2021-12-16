@@ -2,12 +2,9 @@ package projectCalculationTool.task;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import projectCalculationTool.subproject.SubProject;
 import projectCalculationTool.util.exception.TaskException;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,4 +37,5 @@ class TaskRepositoryTest {
     // Assert
     assertTrue(bakeTask.getTaskID() != 0);
   }
+
 }

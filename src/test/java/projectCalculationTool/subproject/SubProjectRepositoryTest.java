@@ -2,13 +2,9 @@ package projectCalculationTool.subproject;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import projectCalculationTool.employee.Employee;
-import projectCalculationTool.project.Project;
-import projectCalculationTool.project.ProjectRepository;
+
 import projectCalculationTool.testData.TestData;
-import projectCalculationTool.util.exception.ProjectException;
 import projectCalculationTool.util.exception.SubProjectException;
-import projectCalculationTool.util.exception.ValidateException;
 
 import static org.junit.jupiter.api.Assertions.*;
 

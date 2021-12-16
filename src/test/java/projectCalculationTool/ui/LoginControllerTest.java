@@ -22,8 +22,13 @@ public class LoginControllerTest {
     public static void setUp() {
         // Load selenium driver
         // download chromeDriver.exe fra http://chromedriver.storage.googleapis.com/index.html?path=96.0.4664.45/
+
+        //Windows chromedriver
         System.setProperty("webdriver.chrome.driver", "src/test/java/webDriver/chromedriverWindows.exe");
+
+        //Mac chromedriver
         //System.setProperty("webdriver.chrome.driver", "src/test/java/webDriver/chromedriverMac");
+
         selenium = new ChromeDriver();
     }
 

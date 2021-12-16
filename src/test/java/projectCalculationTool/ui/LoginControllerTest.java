@@ -17,11 +17,15 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 public class LoginControllerTest {
 
     private static WebDriver selenium;
+    private static String url;
 
     @BeforeAll
     public static void setUp() {
         // Load selenium driver
         // download chromeDriver.exe fra http://chromedriver.storage.googleapis.com/index.html?path=96.0.4664.45/
+
+        // angiv url om det er heroku eller localhost
+        url = "https://projectcalculationtool.herokuapp.com/";
 
         //Windows chromedriver
         System.setProperty("webdriver.chrome.driver", "src/test/java/webDriver/chromedriverWindows.exe");
@@ -35,7 +39,7 @@ public class LoginControllerTest {
     @Test
     public void canLogin() throws InterruptedException {
         // Launch
-        selenium.navigate().to("http://localhost:8080");
+        selenium.navigate().to(url);
         WebElement email = selenium.findElement(By.name("email"));
         email.sendKeys("test@yes.com");
         WebElement password = selenium.findElement(By.name("password"));
@@ -50,7 +54,7 @@ public class LoginControllerTest {
     @CsvSource(value = {"invalid@yes.com:123", "test@yes.com:345", "test:123", ":4", "test:", ":"}, delimiter = ':')
     public void cannotLogin(String inputEmail, String inputPassword) {
         // Launch
-        selenium.navigate().to("http://localhost:8080");
+        selenium.navigate().to(url);
         WebElement email = selenium.findElement(By.name("email"));
         if (inputEmail != null) {
             email.sendKeys(inputEmail);

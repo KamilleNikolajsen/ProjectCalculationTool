@@ -16,11 +16,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PageNavigationTest {
 
   private static WebDriver selenium;
+  private static String url;
 
   @BeforeAll
   public static void setUp() {
     // Load selenium driver
     // download chromeDriver.exe fra http://chromedriver.storage.googleapis.com/index.html?path=96.0.4664.45/
+
+    // angiv url om det er heroku eller localhost
+    url = "https://projectcalculationtool.herokuapp.com/";
 
     //Windows chromedriver
     System.setProperty("webdriver.chrome.driver", "src/test/java/webDriver/chromedriverWindows.exe");
@@ -30,7 +34,7 @@ public class PageNavigationTest {
 
     selenium = new ChromeDriver();
 
-    selenium.navigate().to("http://localhost:8080");
+    selenium.navigate().to(url);
     WebElement email = selenium.findElement(By.name("email"));
     email.sendKeys("test@yes.com");
     WebElement password = selenium.findElement(By.name("password"));
@@ -120,7 +124,7 @@ public class PageNavigationTest {
 
   @AfterAll
   public static void tearDown() {
-    selenium.navigate().to("http://localhost:8080/profile");
+    selenium.navigate().to(url + "profile");
     WebElement project = selenium.findElement(By.name("SeleniumProjectTestdelete"));
     project.click();
 

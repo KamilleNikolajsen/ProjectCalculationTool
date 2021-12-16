@@ -22,7 +22,9 @@ To use this project:
 - Clone locally
 - Create database using the sql scripts from the program in your local database maneger. starting with the start.sql and thereafter the testdata.sql
 - Set your envierment variables: user(username for local database), password(password for local database), url(jdbc:mysql://hostname:3306/projectcalculationtool?      reconnect=true&autoReconnect=true) change hostname to local hostname
-- Go into the ui testclasses and select the webdriver that suits you, Mac or Windows. 
+- Go into the ui testclasses:
+    - Select the webdriver that suits you, Mac or Windows. 
+    - Select the url for where you want to test, Local or on Heroku.
 - Run program 
 - Open the webbrowser to localhost:8080
     - If you want to host one your own Heroku account:

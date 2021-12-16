@@ -23,7 +23,12 @@ To use this project:
 - Create database using the sql scripts from the program in your local database maneger. starting with the start.sql and thereafter the testdata.sql
 - Set your envierment variables: user(username for local database), password(password for local database), url(jdbc:mysql://hostname:3306/projectcalculationtool?      reconnect=true&autoReconnect=true) change hostname to local hostname
 - Go into the ui testclasses and select the webdriver that suits you, Mac or Windows. 
-- Run program and open the webbrowser to localhost:8080
+- Run program 
+- Open the webbrowser to localhost:8080
+    - If you want to host one your own Heroku account:
+    - Go to Heroku and connect to your cloned repository
+    - Choose the branche you want to deploy
+    - Deploy
 - Login to the program using the login username: test@yes.com and password: 123
 - Herafter you can create projects.
 - After creating a project you can click into the project to add subprojects and tasks

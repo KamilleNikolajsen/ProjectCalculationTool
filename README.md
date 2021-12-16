@@ -9,7 +9,7 @@ It is recommended to install IntelliJ and MySQL workbench.
 
 Otherwise before you begin be sure to have:
 - Compiler that runs Java and supports:
-    - Thymelief
+    - Thymeleaf
     - JDBC
     - MySQL
     - Spring
